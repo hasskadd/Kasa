@@ -1,24 +1,30 @@
 import styled from 'styled-components'
+//import colors from '../../utils/styles/colors'
 
 const CardWrapper = styled.div`
-    display:flex;
-    flex-direction:row;
-    padding:20px;
-    width: 340px;
-    height: 340px
-        &:hover{
-            cursor:pointer;
-        } 
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+      
 `
 
 const CardImage = styled.img`
-    width: 340px;
-    height: 340px;    
-    border-raduis: 10px;
+    width: 100%;
+    height: 100%;    
     object-fit: cover;
 `
-const CardTitle = styled.h3`
-    size : 18px
+const CardTitle = styled.p`
+    size : 18px;
+    width:300px;
+    height:52px;
+    margin:0;
+    padding:10px;
+    position: absolute;
+    bottom: 0;
+    
+
 `
 
 function Card(props){

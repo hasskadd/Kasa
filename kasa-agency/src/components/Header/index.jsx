@@ -1,20 +1,25 @@
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import logoHeader from '../Assets/LOGO.png'
+import { StyledLink } from '../../utils/styles/Atom'
 
 const HomeLogo = styled.img`
 height: 68px;
-width: 210.32px;
+width: 210px;
 
 `
 const NavHeader = styled.header`
-padding: 30px;
+padding: 30px 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
 `
 const NavContainer = styled.nav`
 
+width: 200px;
+display:flex;
+justify-content: flex-end;
+gap: 40px;
 `
 
 function Header(){
@@ -24,8 +29,8 @@ function Header(){
                 <HomeLogo src={logoHeader}/>
             </Link>
             <NavContainer>
-                <Link to='/'>Accueil</Link>
-                <Link to='/about'>A propos</Link>
+                <StyledLink to='/'>Accueil</StyledLink>
+                <StyledLink to='/about'>A propos</StyledLink>
             </NavContainer>
         </NavHeader>
        
