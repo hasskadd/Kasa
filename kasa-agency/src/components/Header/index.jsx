@@ -7,24 +7,27 @@ height: 68px;
 width: 210.32px;
 
 `
-const NavContainer = styled.nav`
+const NavHeader = styled.header`
 padding: 30px;
 display: flex;
 justify-content: space-between;
 align-items: center;
 `
+const NavContainer = styled.nav`
+
+`
 
 function Header(){
     return(
-        <NavContainer>
+        <NavHeader>
             <Link to='/'>
                 <HomeLogo src={logoHeader}/>
             </Link>
-            <div>
+            <NavContainer>
                 <Link to='/'>Accueil</Link>
                 <Link to='/about'>A propos</Link>
-            </div>
-        </NavContainer>
+            </NavContainer>
+        </NavHeader>
        
 
     )
