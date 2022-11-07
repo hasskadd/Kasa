@@ -6,7 +6,7 @@ import Collapsible from "../../components/Collapse"
 
 const MainContainer = styled.main`
 margin 0 90px;
-max-width: 1240px;
+max-width: 1240px;  
 `
 const CollapseContainer = styled.div`
 display: flex;
