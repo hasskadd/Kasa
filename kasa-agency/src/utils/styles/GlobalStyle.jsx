@@ -6,8 +6,7 @@ const StyledGlobalStyle = createGlobalStyle`
       box-sizing: border-box;
     }
     body {
-        margin: 0 90px;
-        max-width: 1240px;
+        margin: 0;
     }
 `
 

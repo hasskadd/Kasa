@@ -1,6 +1,4 @@
-import imageBanner from '../Assets/imageBanner.png'
 import styled from 'styled-components'
-//import colors from '../../utils/styles/colors'
 
 const HomeBanner = styled.img`
 width:100%;
@@ -35,12 +33,12 @@ top:0;
 `
 
 
-function Banner(){
+function Banner(props){
     return(
         <BannerContainer>
-            <HomeBanner src={imageBanner}/>
+            <HomeBanner src={props.imageBanner}/>
             <Overlay></Overlay>
-            <BannerTitle>Chez vous, partout  et ailleurs</BannerTitle>
+            <BannerTitle>{props.title}</BannerTitle>
         </BannerContainer>
     )
 }

@@ -5,8 +5,8 @@ import Home from './pages/Home';
 import About from './pages/About/About';
 import Error from './components/Error';
 import Header from './components/Header';
-import Banner from './components/Banner';
 import GlobalStyle from './utils/styles/GlobalStyle';
+import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,12 +14,12 @@ root.render(
     <Router>
       <GlobalStyle/>
       <Header/>
-      <Banner/>
       <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='*' element={<Error/>}/>
       </Routes>
+      <Footer/>
     </Router>
     
   </React.StrictMode>

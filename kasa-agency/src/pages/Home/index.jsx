@@ -2,6 +2,8 @@ import Card from "../../components/Card";
 import logement from "../../components/Assets/logements.json"
 import styled from 'styled-components'
 import colors from "../../utils/styles/colors";
+import Banner from "../../components/Banner";
+import imageBanner from "../../components/Assets/imageBanner.png"
 
 const CardsContainer = styled.div`
 display:flex;
@@ -10,22 +12,25 @@ border:1px solid transparent;
 border-radius: 25px;
 background-color:${colors.allDivLogBackground};
 padding: 56px 50px ;
-gap 40px; 
+gap 40px;
+margin-bottom: 40px; 
 `
-/*const BodyCardContainer = styled.div`
-  border: 1px solid trasparent;
-  background-color:${colors.allDivLogBackground};
-  padding:20px;
-  border-radius: 25px;
 
-` */
+const MainContainer = styled.main`
+margin 0 90px;
+max-width: 1240px;
+`
 
 
 
-
-function Home() { 
+function Home() {
   return (
-      <CardsContainer>
+    <MainContainer>
+        <Banner 
+        imageBanner = {imageBanner}
+        title = "Chez vous, partout  et ailleurs"
+        />
+        <CardsContainer>
         {logement.map((loge, index) => (
           <Card
             key={`${loge.id}-${index}`}
@@ -34,6 +39,9 @@ function Home() {
           />
        ))}
       </CardsContainer>
+    </MainContainer>
+
+      
 
   )
 }

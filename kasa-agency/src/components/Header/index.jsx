@@ -13,6 +13,8 @@ padding: 30px 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
+margin 0 90px;
+max-width: 1240px;
 `
 const NavContainer = styled.nav`
 

@@ -3,6 +3,12 @@ import colors from './colors'
 import styled from 'styled-components'
 
 export const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${colors.primaryOrange};
-  `
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: ${colors.primaryOrange};
+    border: 2px solid transparent;
+    &:active{
+        border-bottom:1px solid red;
+    }
+`
