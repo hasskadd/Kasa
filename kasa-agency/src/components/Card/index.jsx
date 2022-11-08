@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 //import colors from '../../utils/styles/colors'
 
-const CardWrapper = styled.div`
+const CardWrapper = styled.article`
     width: 300px;
     height: 300px;
     position: relative;

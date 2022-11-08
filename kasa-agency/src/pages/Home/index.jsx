@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import colors from "../../utils/styles/colors";
 import Banner from "../../components/Banner";
 import imageBanner from "../../components/Assets/imageBanner.png"
+import {Link} from 'react-router-dom'
+//import Error from "../../components/Error";
+
 
 const CardsContainer = styled.div`
 display:flex;
@@ -32,11 +35,14 @@ function Home() {
         />
         <CardsContainer>
         {logement.map((loge, index) => (
-          <Card
+          <Link to={`/Logement/${loge.id}`}>
+            <Card
             key={`${loge.id}-${index}`}
             cover={loge.cover}
             title={loge.title}
-          />
+            />
+          </Link>
+          
        ))}
       </CardsContainer>
     </MainContainer>
