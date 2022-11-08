@@ -35,7 +35,7 @@ function Home() {
         />
         <CardsContainer>
         {logement.map((loge, index) => (
-          <Link to={`/Logement/${loge.id}`}>
+          <Link to={`/Logement/${loge.id}`} key={`${loge.id}-${index}`}>
             <Card
             key={`${loge.id}-${index}`}
             cover={loge.cover}
