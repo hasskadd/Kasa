@@ -1,0 +1,62 @@
+.MainContainer{
+margin: 0 90px;
+max-width: 1240px;
+}
+
+.CollapseContainer{
+display: flex;
+flex-direction: row;
+gap: 46px;
+margin-bottom: 30px;
+}
+.CollapseContainerSyledFlex{
+flex:1 50%;
+}
+.BannerContainer{
+height: 380px;
+width: 100%;
+position:relative;
+display:flex;
+border-radius: 20px;
+overflow:hidden;
+margin-bottom: 40px;
+}
+
+.ArrowStyleLeft{
+position: absolute;
+transform: translate(0, -50%);
+top: 50%;
+z-index: 30;
+width: 70px;
+}
+.SubBannerContainer{
+display: flex;
+justify-content: space-between;
+margin-bottom : 40px;
+}
+
+@media screen and (max-width: 768px) {
+   .MainContainer{
+    margin: 0 17px;
+    max-width: 768px;
+   }
+   .hostStar{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+   }
+   .hostStar h3{
+    max-width: 60px;
+    margin: 0;
+   }
+   .SubBannerContainer{
+    flex-direction: column;
+   }
+   .CollapseContainer{
+    flex-direction: column;
+   }
+   .CollapseContainerSyledFlex{
+    flex:1 100%;
+    }
+}

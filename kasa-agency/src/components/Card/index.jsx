@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-//import colors from '../../utils/styles/colors'
-
+import '../../utils/context/Main.css'
+/*
 const CardWrapper = styled.article`
     width: 300px;
     height: 300px;
@@ -9,7 +9,7 @@ const CardWrapper = styled.article`
     border-radius: 10px;
       
 `
-
+*/
 const CardImage = styled.img`
     width: 100%;
     height: 100%;    
@@ -35,11 +35,11 @@ top:0;
 
 function Card(props){
     return(
-        <CardWrapper>
+        <article className='CardWrapper'>
             <CardImage src={props.cover}/>
             <Overlay></Overlay>
             <CardTitle>{props.title}</CardTitle>
-        </CardWrapper>
+        </article>
     )
 }
 

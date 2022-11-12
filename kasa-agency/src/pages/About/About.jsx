@@ -1,29 +1,17 @@
 import Banner from "../../components/Banner"
 import imgAbout from "../../components/Assets/imgBannerAbout.png"
-import styled from 'styled-components'
+//import styled from 'styled-components'
 import Collapsible from "../../components/Collapse"
-
-
-const MainContainer = styled.main`
-margin 0 90px;
-max-width: 1240px;  
-`
-const CollapseContainer = styled.div`
-display: flex;
-flex-direction: column;
-gap: 20px;
-margin: 40px 90px;
-`
-
+import '../../utils/context/Main.css'
 
 
 function About(){
     return (
-        <MainContainer>
+        <main className="MainContainer">
             <Banner 
                 imageBanner = {imgAbout}
             />
-            <CollapseContainer>
+            <div className="CollapseContainerAbout">
                 <Collapsible title = "Fiabilité">
                     <p> 
                         Les annonces postées sur Kasa garantissent une fiabilité totale. 
@@ -56,8 +44,8 @@ function About(){
                           des ateliers sur la sécurité domestique pour nos hôtes.
                     </p>
                 </Collapsible>
-            </CollapseContainer>
-        </MainContainer>
+            </div>
+        </main>
 
     )
 }

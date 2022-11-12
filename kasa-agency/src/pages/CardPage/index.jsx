@@ -6,17 +6,8 @@ import { useState } from 'react'
 import arrowLeft from '../../components/Assets/arrowLeft.png'
 import arrowRight from '../../components/Assets/arrowRight.png'
 import { StarsRating } from '../../components/starsRating'
+import '../../utils/context/CardPageStyle.css'
 
-
-const CollapseContainer = styled.div`
-display: flex;
-flex-direction: row;
-gap: 46px;
-margin-bottom: 30px;
-`
-const CollapseContainerSyledFlex = styled.div`
-flex:1 50%
-`
 
 const ArrowStyleLeft = styled.img`
 position absolute;
@@ -24,6 +15,7 @@ transform: translate(0, -50%);
 top: 50%;
 z-index: 30;
 width: 70px;
+cursor:pointer
 `
 const ArrowStyleRight = styled.img`
 transform: translate(-100%, -50%);
@@ -32,11 +24,7 @@ left: 100%;
 z-index: 30;
 position: absolute;
 width: 70px;
-`
-const MainContainer = styled.main`
-margin 0 90px;
-max-width: 1240px;
-
+cursor:pointer
 `
 const GalerieImageSlide = styled.img`
 width: 100%;
@@ -48,15 +36,7 @@ height: 100%;
 width: 100%;
 position: absolute;
 `
-const BannerContainer = styled.div`
-height: 380px;
-width: 100%;
-position:relative;
-display:flex;
-border-radius: 20px;
-overflow:hidden;
-margin-bottom: 40px;
-`
+
 const SpanNumber = styled.span`
 position: absolute;
 z-index: 32;
@@ -65,11 +45,6 @@ top: 90%;
 color:white;
 `
 
-const SubBannerContainer = styled.div`
-display: flex;
-justify-content: space-between;
-margin-bottom : 40px;
-`
 const StartRatingContainerGray = styled.div`
 display: flex;
 gap: 6px;
@@ -94,7 +69,7 @@ const ImageHostStyled = styled.img`
 object-fit: cover;
 border-radius: 50%;
 width: 100%;
-height: 100%
+
 `
 const HostContainer = styled.div`
 display: flex;
@@ -136,8 +111,8 @@ function Lodging(){
         setCurrent(current === 0 ? slideLength -1 : current - 1)
     }
    return(
-    <MainContainer>
-        <BannerContainer>
+    <main className='MainContainer'>
+        <div className='BannerContainer'>
             {slideLength > 1 && (<ArrowStyleLeft src={arrowLeft} onClick={prevSlide}/>)}
             {slideLength > 1 && (<ArrowStyleRight src={arrowRight} onClick= {nextSlide}/>)}
             <SpanNumber>{current + 1 }/{slideLength}</SpanNumber>
@@ -148,8 +123,8 @@ function Lodging(){
                 </ImageDIv>
                 
             ))}
-        </BannerContainer>
-        <SubBannerContainer>
+        </div>
+        <div className='SubBannerContainer'>
             <div>
                 <TitleStyled>{findLog.title}</TitleStyled>
                 <LocationStyle>{findLog.location}</LocationStyle>
@@ -160,7 +135,7 @@ function Lodging(){
                 </TagContainer>
   
             </div>
-            <div>
+            <div className='hostStar'>
                 <HostContainer>
                     <h3>{findLog.host.name}</h3>
                     <ImageHostContainer><ImageHostStyled src={findLog.host.picture}/></ImageHostContainer>
@@ -185,26 +160,26 @@ function Lodging(){
                 </RatingContainer>
 
             </div>
-        </SubBannerContainer>
+        </div>
 
-        <CollapseContainer>
-            <CollapseContainerSyledFlex>
+        <div className='CollapseContainer'>
+            <div className='CollapseContainerSyledFlex'>
                 <Collapsible title = "Description">
                     <p> {findLog.description}</p>
                 </Collapsible>
-            </CollapseContainerSyledFlex>
-            <CollapseContainerSyledFlex>
+            </div>
+            <div className='CollapseContainerSyledFlex'>
                 <Collapsible title = "Equipements">
                     {findLog.equipments.map((indexEquip) =>(
-                        <p>{indexEquip}</p>
+                        <p key={indexEquip.toString()}>{indexEquip}</p>
                     ))}
                 </Collapsible>
-            </CollapseContainerSyledFlex>
+            </div>
             
-        </CollapseContainer> 
+        </div> 
          
 
-    </MainContainer>
+    </main>
    )
    
 }
