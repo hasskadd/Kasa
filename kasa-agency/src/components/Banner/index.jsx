@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import '../../utils/context/Main.css'
 
 const HomeBanner = styled.img`
 width:100%;
@@ -12,16 +13,6 @@ background: red;
 margin-bottom: 30px;
 border-radius: 25px;
 overflow: hidden;
-`
-
-const BannerTitle = styled.h1`
-position: absolute;
-color: #FFFFFF;
-font-style: normal;
-top:50%;
-left:50%;
-transform: translate(-50%, -50%);
-margin: 0;
 `
 const Overlay = styled.div`
 width: 100%;
@@ -38,7 +29,7 @@ function Banner(props){
         <BannerContainer>
             <HomeBanner src={props.imageBanner}/>
             <Overlay></Overlay>
-            <BannerTitle>{props.title}</BannerTitle>
+            <h1 className='titleBanner'>{props.title}</h1>
         </BannerContainer>
     )
 }
