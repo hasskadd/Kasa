@@ -53,7 +53,26 @@ left:50%;
 transform: translate(-50%, -50%);
 margin: 0;
 }
+/*********** ERRROR*************/
+.titleError{
+    font-size: 180px;
+    margin: 0;
+    color: #FF6060;
+}
+.mainContainerError{
+margin: 0 90px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.pStyleError{
+color: #FF6060;
+font-weight: 500;
+font-size: 30px;
+margin-bottom: 80px;
+}
   
+/*******************Breakpoint**********/
 
 @media screen and (max-width: 768px) {
     .MainContainer{
@@ -86,5 +105,15 @@ margin: 0;
     }
     .titleBanner{
         width: 280px;
+    }
+    .mainContainerError{
+    align-content: center;
+    justify-content: center;
+    }
+    .titleError{
+        margin-top: 107px;
+    }
+    .pStyleError{
+        width: 323px;
     }
 }
