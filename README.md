@@ -11,6 +11,10 @@ cd Kasa
 ## Lancer  l'application
 
 ```bash
+cd Kasa-agency
+```
+
+```bash
 npm install
 ```
 ```bash
