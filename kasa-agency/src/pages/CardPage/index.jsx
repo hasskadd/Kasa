@@ -7,6 +7,7 @@ import arrowLeft from '../../components/Assets/arrowLeft.png'
 import arrowRight from '../../components/Assets/arrowRight.png'
 import { StarsRating } from '../../components/starsRating'
 import '../../utils/context/CardPageStyle.css'
+import Error from '../../components/Error'
 
 
 const ArrowStyleLeft = styled.img`
@@ -101,86 +102,92 @@ function Lodging(){
     const {id} = useParams()
     const [current, setCurrent] = useState(0)
     const findLog = logement.find((loge) =>loge.id === id)
-    const slideLength = findLog.pictures.length 
-    const ratingLength = parseInt(findLog.rating)
-    const starArray = [1, 2, 3, 4, 5]
-    const  nextSlide = () => {
-        setCurrent(current === slideLength - 1 ? 0: current + 1)
-    }
-    const  prevSlide = () => {
-        setCurrent(current === 0 ? slideLength -1 : current - 1)
-    }
-   return(
-    <main className='MainContainer'>
-        <div className='BannerContainer'>
-            {slideLength > 1 && (<ArrowStyleLeft src={arrowLeft} onClick={prevSlide}/>)}
-            {slideLength > 1 && (<ArrowStyleRight src={arrowRight} onClick= {nextSlide}/>)}
-            <SpanNumber>{current + 1 }/{slideLength}</SpanNumber>
-            {findLog.pictures.map((slide, index) =>(
-                <ImageDIv key={`${slide.toString()}-${index}`}>  
-                    {index === current && (<GalerieImageSlide src={slide}/>)}
-                    
-                </ImageDIv>
-                
-            ))}
-        </div>
-        <div className='SubBannerContainer'>
-            <div>
-                <TitleStyled>{findLog.title}</TitleStyled>
-                <LocationStyle>{findLog.location}</LocationStyle>
-                <TagContainer>
-                    {findLog.tags.map((tag, index) =>(
-                        <TagParagraphe key={`${tag.toString()}-${index}`}>{tag}</TagParagraphe>    
-                    ))}
-                </TagContainer>
-  
-            </div>
-            <div className='hostStar'>
-                <HostContainer>
-                    <h3>{findLog.host.name}</h3>
-                    <ImageHostContainer><ImageHostStyled src={findLog.host.picture}/></ImageHostContainer>
-                </HostContainer>
-                <RatingContainer>
-                    <StartRatingContainerGray>
-                        {starArray.map((index) => {
-                            return(
-                                <StarsRating key={index.toString()}/>
-                            )
-                        })}
-                    </StartRatingContainerGray>
-                    <StartRatingContainerOrange>
-                        {starArray.slice(0, ratingLength).map((index) =>{
-                            return(
-                                <StarsRating key={index.toString()}/>
-                            )
-                        })}
-                    </StartRatingContainerOrange>
-                    
-                    
-                </RatingContainer>
-
-            </div>
-        </div>
-
-        <div className='CollapseContainer'>
-            <div className='CollapseContainerSyledFlex'>
-                <Collapsible title = "Description">
-                    <p> {findLog.description}</p>
-                </Collapsible>
-            </div>
-            <div className='CollapseContainerSyledFlex'>
-                <Collapsible title = "Equipements">
-                    {findLog.equipments.map((indexEquip) =>(
-                        <p key={indexEquip.toString()}>{indexEquip}</p>
-                    ))}
-                </Collapsible>
-            </div>
+    if(findLog){
+            const slideLength = findLog.pictures.length 
+            const ratingLength = parseInt(findLog.rating)
+            const starArray = [1, 2, 3, 4, 5]
+            const  nextSlide = () => {
+                setCurrent(current === slideLength - 1 ? 0: current + 1)
+            }
+            const  prevSlide = () => {
+                setCurrent(current === 0 ? slideLength -1 : current - 1)
+            }
             
-        </div> 
-         
+        return(
+            <main className='MainContainer'>
+                <div className='BannerContainer'>
+                    {slideLength > 1 && (<ArrowStyleLeft src={arrowLeft} onClick={prevSlide}/>)}
+                    {slideLength > 1 && (<ArrowStyleRight src={arrowRight} onClick= {nextSlide}/>)}
+                    <SpanNumber>{current + 1 }/{slideLength}</SpanNumber>
+                    {findLog.pictures.map((slide, index) =>(
+                        <ImageDIv key={`${slide.toString()}-${index}`}>  
+                            {index === current && (<GalerieImageSlide src={slide}/>)}
+                            
+                        </ImageDIv>
+                        
+                    ))}
+                </div>
+                <div className='SubBannerContainer'>
+                    <div>
+                        <TitleStyled>{findLog.title}</TitleStyled>
+                        <LocationStyle>{findLog.location}</LocationStyle>
+                        <TagContainer>
+                            {findLog.tags.map((tag, index) =>(
+                                <TagParagraphe key={`${tag.toString()}-${index}`}>{tag}</TagParagraphe>    
+                            ))}
+                        </TagContainer>
+        
+                    </div>
+                    <div className='hostStar'>
+                        <HostContainer>
+                            <h3>{findLog.host.name}</h3>
+                            <ImageHostContainer><ImageHostStyled src={findLog.host.picture}/></ImageHostContainer>
+                        </HostContainer>
+                        <RatingContainer>
+                            <StartRatingContainerGray>
+                                {starArray.map((index) => {
+                                    return(
+                                        <StarsRating key={index.toString()}/>
+                                    )
+                                })}
+                            </StartRatingContainerGray>
+                            <StartRatingContainerOrange>
+                                {starArray.slice(0, ratingLength).map((index) =>{
+                                    return(
+                                        <StarsRating key={index.toString()}/>
+                                    )
+                                })}
+                            </StartRatingContainerOrange>
+                            
+                            
+                        </RatingContainer>
 
-    </main>
-   )
+                    </div>
+                </div>
+
+                <div className='CollapseContainer'>
+                    <div className='CollapseContainerSyledFlex'>
+                        <Collapsible title = "Description">
+                            <p> {findLog.description}</p>
+                        </Collapsible>
+                    </div>
+                    <div className='CollapseContainerSyledFlex'>
+                        <Collapsible title = "Equipements">
+                            {findLog.equipments.map((indexEquip) =>(
+                                <p key={indexEquip.toString()}>{indexEquip}</p>
+                            ))}
+                        </Collapsible>
+                    </div>
+                    
+                </div> 
+                
+
+            </main>
+        )
+    }else{
+        return <Error/>
+    }
+    
    
 }
 export default Lodging
